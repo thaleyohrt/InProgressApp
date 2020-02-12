@@ -1,8 +1,9 @@
 .buttons {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 200%;
     background-color: coral;
     color: white;
-    width: 200%;
-    height: 200%;
+    text-decoration: none;
+}
+.noDecoration {
+    text-decoration: none;
 }
