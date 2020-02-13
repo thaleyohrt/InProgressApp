@@ -1,4 +1,4 @@
-﻿# list-pagination-and-filtering
+﻿# In Progress | The Time Management App for Students
 
 This project is for COMP 1800
 
