@@ -1,4 +1,4 @@
-﻿# In Progress | The Time Management App for Students
+﻿# In Progress | The Task Tracker App for Students
 
 This project is for COMP 1800
 
