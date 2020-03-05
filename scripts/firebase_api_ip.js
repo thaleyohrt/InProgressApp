@@ -14,3 +14,9 @@ var firebaseConfig = {
     messagingSenderId: "840287480599",
     appId: "1:840287480599:web:51544848c551cc39c1a552"
 };
+//------------------------------------------------
+// Initialize Firebase and Firestore reference
+// Do not delete!
+//------------------------------------------------
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
