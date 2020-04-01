@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Calendar | In Progress</title>
+    <title>Edit Task | In Progress</title>
     <meta name="comp1800 boilerplate code" content="my bcit project">
     <meta name="author" content="BCIT">
 
@@ -26,7 +26,7 @@
     <!------------------------>
     <!-- Your own CSS files -->
     <!------------------------>
-    <link rel="stylesheet" type="text/css" href="styles/edit-task.css">
+    <link rel="stylesheet" type="text/css" href="styles/add-edit-task.css">
 
 </head>
 
@@ -82,21 +82,6 @@
       </div>
     </form>
 
-    <form class="container">
-        <div class="form-row align-items-center">
-            <div class="col-auto my-1">
-                <label class="mr-sm-2" for="inlineFormCustomSelect">Priority</label>
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                    <option selected>Choose...</option>
-                    <option value="1">Low</option>
-                    <option value="2">Medium</option>
-                    <option value="3">High</option>
-                </select>
-            </div>
-        </div>
-    </form>
-    <br>
-
     <div class="container">
         <input class="btn btn-secondary" type="button" value="Cancel" id="cancel-button">
         &nbsp;
@@ -124,11 +109,12 @@
     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
 
-    <!--<script src="scripts/firebase_api_carly.js"> </script>-->
+    <script src="scripts/firebase_api_ip.js"></script>
 
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
+    <script src="scripts/edit-task.js"></script>
 
     <!--------------------------------------------------------------------->
     <!-- Make calls to your own JavaScript functions, here below-->
