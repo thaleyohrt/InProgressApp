@@ -84,36 +84,17 @@
             </nav>
 
             <div class="container-fluid">
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="list-group" id="task-list">
+                    <a class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Assignment 1</h5>
+                            <h5 class="mb-1">Example Task (Hard-coded HTML)</h5>
                             <small>Due Date</small>
                         </div>
-                        <p class="mb-1">Some desription of the given assignment. Might include what has been done
-                            or what is left to do.
-                        </p>
-                        <small>Class and/or custom labels</small>
+                        <p class="mb-1">Some description of task</p>
+                        <small>Course name</small>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Assignment 2</h5>
-                            <small class="text-muted">Due Date</small>
-                        </div>
-                        <p class="mb-1">Some desription of the given assignment. Might include what has been done
-                            or what is left to do.</p>
-                        <small class="text-muted">Class and/or custom labels</small>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">Assignment 3</h5>
-                            <small class="text-muted">Due Date</small>
-                        </div>
-                        <p class="mb-1">Some desription of the given assignment. Might include what has been done
-                            or what is left to do.</p>
-                        <small class="text-muted">Class and/or custom labels</small>
-                    </a>
-                    <a href="add-task.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <a href="add-task.html" id="add-task-button"
+                        class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">Add New Task</h5>
                         </div>
@@ -149,7 +130,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <script src="scripts/firebase_api_ip.js"> </script>
+    
+    <script src="scripts/firebase_api_ip.js"></script>
 
     <script>
         $("#menu-toggle").click(function (e) {
@@ -161,7 +143,7 @@
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
-    <script src="scripts/script.js"></script>
+    <script src="scripts/main.js"></script>
 
     <!--------------------------------------------------------------------->
     <!-- Make calls to your own JavaScript functions, here below-->
