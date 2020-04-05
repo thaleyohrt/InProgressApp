@@ -1,0 +1,9 @@
+body {
+    background-image: url(../images/login-bg.png);
+}
+
+#ip-title {
+    font-weight: bold;
+    font-style: italic;
+    font-family: "Calisto MT";
+}
