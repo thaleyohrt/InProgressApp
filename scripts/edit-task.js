@@ -3,6 +3,7 @@ let taskId;
 let taskNameField;
 let taskDueDateField;
 let taskDescriptionField;
+let courseNameField;
 
 window.onload = initial;
 
@@ -11,6 +12,7 @@ function initial() {
     taskNameField = document.getElementById('task-name');
     taskDueDateField = document.getElementById('task-due-date');
     taskDescriptionField = document.getElementById('task-description');
+    courseNameField = document.getElementById('course-name');
 
     fillHtml();
 
@@ -30,6 +32,7 @@ function fillHtml() {
                     taskNameField.value = snap.data()['task-name'];
                     taskDueDateField.value = snap.data()['task-due-date'];
                     taskDescriptionField.value = snap.data()['task-description'];
+                    courseNameField.value = snap.data()['course-name'];
                 }
             );
     });
@@ -43,7 +46,8 @@ function updateTaskFirebase() {
         .update({
             "task-name": taskNameField.value,
             "task-due-date": taskDueDateField.value,
-            "task-description": taskDescriptionField.value
+            "task-description": taskDescriptionField.value,
+            "course-name": courseNameField.value,
         })
         .then(previousPage);
 }

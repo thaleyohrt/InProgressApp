@@ -15,13 +15,14 @@ function updateHtml() {
                     let taskName = doc.data()['task-name'];
                     let taskDueDate = doc.data()['task-due-date'];
                     let taskDescription = doc.data()['task-description'];
-                    createTaskElement(doc.id, courseName, taskName, taskDueDate, taskDescription);
+                    let courseName = doc.data()['course-name'];
+                    createTaskElement(doc.id, courseName, taskName, taskDueDate, taskDescription, courseName);
                 });
             });
     });
 }
 
-function createTaskElement(docid, courseName, taskName, taskDueDate, taskDescription) {
+function createTaskElement(docid, courseName, taskName, taskDueDate, taskDescription, courseName) {
     let task = document.createElement('A');
     task.className = 'list-group-item list-group-item-action flex-column align-items-start';
     task.onclick = function () {
