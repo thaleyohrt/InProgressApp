@@ -15,7 +15,6 @@ function updateHtml() {
                     let taskName = doc.data()['task-name'];
                     let taskDueDate = doc.data()['task-due-date'];
                     let taskDescription = doc.data()['task-description'];
-                    let courseName = doc.data()['course-name'];
                     createTaskElement(doc.id, courseName, taskName, taskDueDate, taskDescription, courseName);
                 });
             });
