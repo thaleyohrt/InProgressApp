@@ -1,4 +1,23 @@
-window.onload = updateHtml;
+let clickTaskTo = 'edit';
+
+window.onload = initial;
+
+function initial() {
+    let toggle = document.getElementById('edit-delete-toggle');
+    toggle.onclick = function () {
+        if (clickTaskTo === 'edit') {
+            clickTaskTo = 'delete';
+            toggle.className = 'btn btn-danger';
+            toggle.innerHTML = 'Clicking Task: Deletes';
+        } else if (clickTaskTo === 'delete') {
+            clickTaskTo = 'edit';
+            toggle.className = 'btn btn-info';
+            toggle.innerHTML = 'Clicking Task: Edits';
+        }
+    }
+
+    updateHtml();
+}
 
 function updateHtml() {
     firebase.auth().onAuthStateChanged(function (user) {
@@ -8,9 +27,6 @@ function updateHtml() {
             .get()
             .then(function (querySnapshot) {
                 querySnapshot.forEach(function (doc) {
-                    // doc.data() is never undefined for query doc snapshots
-                    console.log(doc.id, " => ", doc.data()); // Feel free to delete this
-
                     let courseName = doc.data()['course-name'];
                     let taskName = doc.data()['task-name'];
                     let taskDueDate = doc.data()['task-due-date'];
@@ -42,6 +58,19 @@ function createTaskElement(docid, courseName, taskName, taskDueDate, taskDescrip
 }
 
 function handleTaskClicked(docid) {
-    sessionStorage.setItem('taskid', docid);
-    window.location.assign('edit-task.html');
+    if (clickTaskTo === 'edit') {
+        sessionStorage.setItem('taskid', docid);
+        window.location.assign('edit-task.html');
+    } else if (clickTaskTo === 'delete') {
+        firebase.auth().onAuthStateChanged(function (user) {
+            db.collection("users")
+                .doc(user.uid)
+                .collection("tasks")
+                .doc(docid)
+                .delete()
+                .then(function () {
+                    location.reload();
+                });
+        });
+    }
 }
