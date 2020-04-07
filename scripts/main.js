@@ -40,8 +40,8 @@ function updateHtml() {
 function createTaskElement(docid, courseName, taskName, taskDueDate, taskDescription, courseName) {
     let task = document.createElement('A');
     task.className = 'list-group-item list-group-item-action flex-column align-items-start';
-    task.onclick = function () {
-        handleTaskClicked(docid);
+    task.onclick = function (event) {
+        handleTaskClicked(docid, event.currentTarget);
     };
 
     task.innerHTML =
@@ -57,10 +57,11 @@ function createTaskElement(docid, courseName, taskName, taskDueDate, taskDescrip
     taskList.insertBefore(task, addTaskButton);
 }
 
-function handleTaskClicked(docid) {
+function handleTaskClicked(docid, taskElement) {
     if (clickTaskTo === 'edit') {
         sessionStorage.setItem('taskid', docid);
         window.location.assign('edit-task.html');
+        
     } else if (clickTaskTo === 'delete') {
         firebase.auth().onAuthStateChanged(function (user) {
             db.collection("users")
@@ -69,7 +70,7 @@ function handleTaskClicked(docid) {
                 .doc(docid)
                 .delete()
                 .then(function () {
-                    location.reload();
+                    taskElement.remove();
                 });
         });
     }
