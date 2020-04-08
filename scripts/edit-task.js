@@ -17,7 +17,13 @@ function initial() {
     fillHtml();
 
     document.getElementById('cancel-button').onclick = previousPage;
-    document.getElementById('confirm-button').onclick = updateTaskFirebase;
+    document.getElementById('confirm-button').onclick = function () {
+        if (taskNameField.value !== '') {
+            updateTaskFirebase();
+        } else {
+            alert('Must fill in Task Name');
+        }
+    }
 }
 
 function fillHtml() {
