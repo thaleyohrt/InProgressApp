@@ -12,7 +12,13 @@ function initial() {
     courseNameField = document.getElementById('course-name');
 
     document.getElementById('cancel-button').onclick = previousPage;
-    document.getElementById('confirm-button').onclick = addTaskFirebase;
+    document.getElementById('confirm-button').onclick = function () {
+        if (taskNameField.value !== '') {
+            addTaskFirebase();
+        } else {
+            alert('Must fill in Task Name');
+        }
+    }
 }
 
 function addTaskFirebase() {
