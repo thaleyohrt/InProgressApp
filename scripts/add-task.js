@@ -3,8 +3,12 @@ let taskDueDateField;
 let taskDescriptionField;
 let courseNameField;
 
+// Wait until the window loads to run things.
 window.onload = initial;
 
+/**
+ * Get the information from the fields that the user has inputted.
+ */
 function initial() {
     taskNameField = document.getElementById('task-name');
     taskDueDateField = document.getElementById('task-due-date');
@@ -21,6 +25,9 @@ function initial() {
     }
 }
 
+/**
+ * Adds information to correct databse location.
+ */
 function addTaskFirebase() {
     firebase.auth().onAuthStateChanged(function (user) {
         taskObj = {
@@ -37,6 +44,9 @@ function addTaskFirebase() {
     });
 }
 
+/**
+ * Takes use back to the main page.
+ */
 function previousPage() {
     window.location.assign("main.html");
 }

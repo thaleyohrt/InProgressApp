@@ -5,8 +5,12 @@ let taskDueDateField;
 let taskDescriptionField;
 let courseNameField;
 
+// Wait until the window loads to begin.
 window.onload = initial;
 
+/**
+ * Gets the information from the page that user inputs.
+ */
 function initial() {
     taskId = sessionStorage.getItem('taskid');
     taskNameField = document.getElementById('task-name');
@@ -26,6 +30,9 @@ function initial() {
     }
 }
 
+/**
+ * Fills the boxes with the information of the task the user clicked.
+ */
 function fillHtml() {
     firebase.auth().onAuthStateChanged(function (user) {
         userId = user.uid; // Reason for this is so we could use it in updateTaskFirebase()
@@ -44,6 +51,9 @@ function fillHtml() {
     });
 }
 
+/**
+ * Update the database with the new information.
+ */
 function updateTaskFirebase() {
     db.collection("users")
         .doc(userId)
@@ -58,6 +68,9 @@ function updateTaskFirebase() {
         .then(previousPage);
 }
 
+/**
+ * Take the user back to the main page.
+ */
 function previousPage() {
     window.location.assign("main.html");
 }
