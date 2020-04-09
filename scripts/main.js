@@ -1,7 +1,11 @@
 let clickTaskTo = 'edit';
 
+// Wait until the page loads before starting
 window.onload = initial;
 
+/**
+ * Sets up the main page template.
+ */
 function initial() {
     let toggle = document.getElementById('edit-delete-toggle');
     let background = document.getElementById('task-list-background');
@@ -22,6 +26,9 @@ function initial() {
     updateHtml();
 }
 
+/**
+ * Updates the page with the user's database information.
+ */
 function updateHtml() {
     firebase.auth().onAuthStateChanged(function (user) {
         db.collection("users")
@@ -40,6 +47,16 @@ function updateHtml() {
     });
 }
 
+/**
+ * Adds a newly created task to the page.
+ * 
+ * @param {string} docid 
+ * @param {string} courseName 
+ * @param {string} taskName 
+ * @param {string} taskDueDate 
+ * @param {string} taskDescription 
+ * @param {string} courseName 
+ */
 function createTaskElement(docid, courseName, taskName, taskDueDate, taskDescription, courseName) {
     let task = document.createElement('A');
     task.className = 'list-group-item list-group-item-action flex-column align-items-start';
@@ -65,6 +82,12 @@ function createTaskElement(docid, courseName, taskName, taskDueDate, taskDescrip
     taskList.insertBefore(task, addTaskButton);
 }
 
+/**
+ * Either takes you to edit or delete a task when clicked.
+ * 
+ * @param {string} docid 
+ * @param {string} taskElement 
+ */
 function handleTaskClicked(docid, taskElement) {
     if (clickTaskTo === 'edit') {
         sessionStorage.setItem('taskid', docid);
